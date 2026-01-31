@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clario - Life & Business Dashboard</title>
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#4caf50">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div>
+      <img src="icons/icon-192.png" alt="Clario logo" id="clario-icon">
+      <h1>Clario</h1>
+    </div>
+    <div id="mode-toggle">
+      <button id="personal-mode" class="active">🧍 Personal</button>
+      <button id="business-mode">🧑‍💼 Business</button>
+    </div>
+  </header>
+
+  <!-- Upcoming Items -->
+  <section id="upcoming" aria-label="Upcoming Items">
+    <h2>What’s Next</h2>
+    <ul id="upcoming-list"></ul>
+  </section>
+
+  <!-- Monthly Overview -->
+  <section id="monthly-overview" aria-label="Monthly Overview">
+    <h2>Monthly Commitments</h2>
+    <p>Total: $<span id="monthly-total">0</span></p>
+  </section>
+
+  <!-- All Items -->
+  <section id="all-items" aria-label="All Items">
+    <h2>All Items</h2>
+    <ul id="items-list"></ul>
+  </section>
+
+  <!-- Add Item Button -->
+  <button id="add-item-btn">➕ Add Item</button>
+
+  <!-- Add Item Form Modal -->
+  <div id="add-item-form">
+    <h3>Add New Item</h3>
+    <form id="item-form">
+      <label>Title:<input type="text" id="item-title" required></label>
+      <label>Type:
+        <select id="item-type">
+          <option value="payment">Payment</option>
+          <option value="appointment">Appointment</option>
+          <option value="deadline">Deadline</option>
+          <option value="document">Document</option>
+        </select>
+      </label>
+      <label id="amount-label">Amount:<input type="number" id="item-amount" step="0.01"></label>
+      <label>Due Date:<input type="date" id="item-due-date" required></label>
+      <label>Recurring:
+        <select id="item-recurring">
+          <option value="">None</option>
+          <option value="daily">Daily</option>
+          <option value="weekly">Weekly</option>
+          <option value="monthly">Monthly</option>
+          <option value="yearly">Yearly</option>
+        </select>
+      </label>
+      <label>Reminder:<input type="checkbox" id="item-reminder" checked></label>
+      <label>Mode:
+        <select id="item-mode">
+          <option value="personal">Personal</option>
+          <option value="business">Business</option>
+        </select>
+      </label>
+      <button type="submit">Save Item</button>
+      <button type="button" id="cancel-item">Cancel</button>
+    </form>
+  </div>
+
+  <!-- JS -->
+  <script src="script.js"></script>
+</body>
+</html>
